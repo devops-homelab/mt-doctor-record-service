@@ -1,0 +1,47 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output of the 'go build' command
+*.out
+
+# Build and dependency directories
+/vendor/
+/bin/
+/pkg/
+
+# Test binaries
+*.test
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Dependency management
+Gopkg.lock
+Gopkg.toml
+go.sum
+
+# Coverage results
+*.cover
+*.cov
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Generated files
+gen-*
+
+# Docker-specific files
+docker-compose.override.yml
