@@ -7,51 +7,18 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    uses: devops-homelab/homelab-github-reusable-workflows/.github/workflows/digitalocean-build-push.yaml@main
+    with:
+      registry: "registry.digitalocean.com/home-lab-container-registry"
+      image_name: "mt-doctor-record-service"
+    secrets:
+      DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-    steps:
-      # Step 1: Checkout code
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Step 2: Install doctl
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-
-      # Step 3: Build container image
-      - name: Build container image
-        run: |
-          IMAGE_TAG=$(echo $GITHUB_SHA | head -c3)
-          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
-          docker build -t registry.digitalocean.com/home-lab-container-registry/mt-doctor-record-service:$IMAGE_TAG .
-
-      # Step 4: Log in to DigitalOcean Container Registry
-      - name: Log in to DigitalOcean Container Registry
-        run: doctl registry login --expiry-seconds 1200
-
-      # Step 5: Push image to DigitalOcean Container Registry
-      - name: Push image to DigitalOcean Container Registry
-        run: |
-          docker push registry.digitalocean.com/home-lab-container-registry/mt-doctor-record-service:$IMAGE_TAG
-
-      # Step 6: Checkout GitOps repository with PAT
-      - name: Checkout GitOps repository
-        uses: actions/checkout@v3
-        with:
-          repository: devops-homelab/homelab-gitops
-          token: ${{ secrets.PAT_TOKEN }}
-          ref: main
-
-      # Step 7: Update GitOps values.yaml
-      - name: Update GitOps values.yaml
-        run: |
-          sed -i "s|tag:.*|tag: $IMAGE_TAG|" charts/app/meditrack/mt-doctor-record-service/values/values.yaml
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add charts/app/meditrack/mt-doctor-record-service/values/values.yaml
-          git commit -m "Update mt-doctor-record-service image tag to $IMAGE_TAG"
-          git push origin main
-        env:
-          IMAGE_TAG: ${{ env.IMAGE_TAG }}
+  update-chart-image-version:
+    needs: build-and-push
+    uses: devops-homelab/homelab-github-reusable-workflows/.github/workflows/update-chart-img-ver.yaml@main
+    with:
+      app_name: "meditrack"
+      service_name: "mt-doctor-record-service"
+    secrets:
+      PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
