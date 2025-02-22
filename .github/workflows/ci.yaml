@@ -34,7 +34,7 @@ jobs:
       # Step 5: Push image to DigitalOcean Container Registry
       - name: Push image to DigitalOcean Container Registry
         run: |
-          docker push registry.digitalocean.com/mt-container-registry/mt-doctor-record-service:$IMAGE_TAG
+          docker push registry.digitalocean.com/home-lab-container-registry/mt-doctor-record-service:$IMAGE_TAG
 
       # Step 6: Checkout GitOps repository with PAT
       - name: Checkout GitOps repository
