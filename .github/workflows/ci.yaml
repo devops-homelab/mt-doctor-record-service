@@ -2,6 +2,10 @@ name: CI [mt-doctor-record-service]
 
 on:
   pull_request:
+    types:
+      - opened
+      - synchronize
+      - closed  
     branches:
       - main
     paths-ignore:
