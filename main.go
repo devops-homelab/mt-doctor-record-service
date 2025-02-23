@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+
 	// Initialize the database connection
 	db.InitDB()
 	log.Println("Database connected")
