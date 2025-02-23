@@ -14,7 +14,7 @@ jobs:
     secrets:
       DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-  update-chart-image-version:
+  deploy:
     needs: build-and-push
     uses: devops-homelab/homelab-github-reusable-workflows/.github/workflows/update-chart-img-ver.yaml@main
     with:
