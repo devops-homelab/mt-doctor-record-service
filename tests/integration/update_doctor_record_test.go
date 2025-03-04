@@ -10,7 +10,7 @@ import (
 )
 
 func TestUpdateDoctor(t *testing.T) {
-	baseURL := "http://preview.doctor-records.apps.meditrack-app.me/doctors"
+	baseURL := "mt-doctor-record-service-dev-preview.mt-doctor-record-service-dev.svc.cluster.local/doctors"
 	doctorID := fetchRandomDoctor(t, baseURL)
 
 	// Request payload for updating the doctor

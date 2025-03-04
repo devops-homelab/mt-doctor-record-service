@@ -9,7 +9,7 @@ import (
 )
 
 func TestAddDoctor(t *testing.T) {
-	baseURL := "http://preview.doctor-records.apps.meditrack-app.me/doctors"
+	baseURL := "mt-doctor-record-service-dev-preview.mt-doctor-record-service-dev.svc.cluster.local/doctors"
 
 	// Request payload for adding a new doctor
 	newDoctor := map[string]interface{}{

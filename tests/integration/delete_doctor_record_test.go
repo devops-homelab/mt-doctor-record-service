@@ -9,7 +9,7 @@ import (
 )
 
 func TestDeleteDoctor(t *testing.T) {
-	baseURL := "http://preview.doctor-records.apps.meditrack-app.me/doctors"
+	baseURL := "mt-doctor-record-service-dev-preview.mt-doctor-record-service-dev.svc.cluster.local/doctors"
 
 	// Fetch a random doctor ID to delete
 	doctorID := fetchRandomDoctorID(t, baseURL)
