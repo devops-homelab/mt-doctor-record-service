@@ -26,9 +26,6 @@ func InitDB() {
 		dbHost, dbPort, dbUser, dbPassword, dbName,
 	)
 
-	// Print the DSN to the console
-	fmt.Println("Data Source Name (DSN):", dataSourceName)
-
 	// Open the connection to the database
 	var err error
 	db, err = sql.Open("postgres", dataSourceName)
