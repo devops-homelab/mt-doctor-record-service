@@ -33,6 +33,7 @@ func main() {
 	// Delete a doctor by ID
 	r.HandleFunc("/doctors/{id}", doctorHandler.DeleteDoctorHandler).Methods("DELETE")
 
+	// Start the server on port 8084
 	log.Println("Starting server on :8084")
 	log.Fatal(http.ListenAndServe(":8084", r))
 }
