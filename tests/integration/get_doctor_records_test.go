@@ -8,7 +8,7 @@ import (
 )
 
 func TestGetAllDoctors(t *testing.T) {
-	baseURL := "http://mt-doctor-record-service-dev-preview.mt-doctor-record-service-dev.svc.cluster.local:8084/doctors"
+	baseURL := "http://doctor-record-service-dev-preview.doctor-record-service-dev.svc.cluster.local:8084/doctors"
 
 	// Send GET request to retrieve all doctors
 	resp, err := http.Get(baseURL)

@@ -21,7 +21,7 @@ services:
 
   app:
     build: .
-    container_name: mt_doctor_record_service
+    container_name: doctor_record_service
     environment:
       DB_USER: postgres
       DB_PASSWORD: admin123

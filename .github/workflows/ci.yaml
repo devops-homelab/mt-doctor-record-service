@@ -1,4 +1,4 @@
-name: CI [mt-doctor-record-service]
+name: CI [doctor-record-service]
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
     uses: devops-homelab/homelab-github-reusable-workflows/.github/workflows/digitalocean-build-push.yaml@main
     with:
       registry: "registry.digitalocean.com/home-lab-container-registry"
-      image_name: "mt-doctor-record-service"
+      image_name: "doctor-record-service"
     secrets:
       DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
@@ -26,6 +26,6 @@ jobs:
     uses: devops-homelab/homelab-github-reusable-workflows/.github/workflows/update-chart-img-ver.yaml@main
     with:
       app_name: "meditrack"
-      service_name: "mt-doctor-record-service"
+      service_name: "doctor-record-service"
     secrets:
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

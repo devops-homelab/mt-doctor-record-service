@@ -1,10 +1,10 @@
-# mt-doctor-record-service
+# doctor-record-service
 
-This project is the `mt-doctor-record-service`, which provides functionalities for managing doctor records.
+This project is the `doctor-record-service`, which provides functionalities for managing doctor records.
 
 ## Overview
 
-The `mt-doctor-record-service` is designed to handle the creation, retrieval, updating, and deletion of doctor records. It is built using Go and uses a PostgreSQL database.
+The `doctor-record-service` is designed to handle the creation, retrieval, updating, and deletion of doctor records. It is built using Go and uses a PostgreSQL database.
 
 ## Features
 
@@ -24,11 +24,11 @@ The `mt-doctor-record-service` is designed to handle the creation, retrieval, up
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/mt-doctor-record-service.git
+    git clone https://github.com/yourusername/doctor-record-service.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd mt-doctor-record-service
+    cd doctor-record-service
     ```
 3. Install dependencies:
     ```sh
@@ -40,11 +40,11 @@ The `mt-doctor-record-service` is designed to handle the creation, retrieval, up
 1. Set up the PostgreSQL database and update the connection settings in the configuration file.
 2. Build the project:
     ```sh
-    go build -o mt-doctor-record-service
+    go build -o doctor-record-service
     ```
 3. Run the executable:
     ```sh
-    ./mt-doctor-record-service
+    ./doctor-record-service
     ```
 4. The service will be available at `http://localhost:8080`.
 
@@ -62,11 +62,11 @@ To run the service in a Docker container:
 
 1. Build the Docker image:
     ```sh
-    docker build -t mt-doctor-record-service .
+    docker build -t doctor-record-service .
     ```
 2. Run the Docker container:
     ```sh
-    docker run -e POSTGRES_USER=<username> -e POSTGRES_PASSWORD=<password> -e POSTGRES_DB=<database> -p 8080:8080 mt-doctor-record-service
+    docker run -e POSTGRES_USER=<username> -e POSTGRES_PASSWORD=<password> -e POSTGRES_DB=<database> -p 8080:8080 doctor-record-service
     ```
 
 ## Docker Compose
