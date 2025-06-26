@@ -99,5 +99,8 @@ func (h *DoctorHandler) DeleteDoctorHandler(w http.ResponseWriter, r *http.Reque
 	}
 
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(message)
+	if err := json.NewEncoder(w).Encode(message); err != nil {
+		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
+		return
+	}
 }
