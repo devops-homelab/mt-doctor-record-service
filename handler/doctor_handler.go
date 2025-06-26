@@ -94,10 +94,10 @@ func (h *DoctorHandler) DeleteDoctorHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	// message := map[string]string{
-	// 	"message": "Doctor " + id + " is deleted successfully",
-	// }
+	message := map[string]string{
+		"message": "Doctor " + id + " is deleted successfully",
+	}
 
 	w.WriteHeader(http.StatusOK)
-	// json.NewEncoder(w).Encode(message)
+	json.NewEncoder(w).Encode(message)
 }
