@@ -94,13 +94,13 @@ func (h *DoctorHandler) DeleteDoctorHandler(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	message := map[string]string{
-		"message": "Doctor " + id + " is deleted successfully",
-	}
+	// message := map[string]string{
+	// 	"message": "Doctor " + id + " is deleted successfully",
+	// }
 
 	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(message); err != nil {
-		http.Error(w, "Failed to encode response", http.StatusInternalServerError)
-		return
-	}
+	// if err := json.NewEncoder(w).Encode(message); err != nil {
+	// 	http.Error(w, "Failed to encode response", http.StatusInternalServerError)
+	// 	return
+	// }
 }
