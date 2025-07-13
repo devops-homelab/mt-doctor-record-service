@@ -17,6 +17,7 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           prompt: 'Hello!'
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Use Response File
         run: |
