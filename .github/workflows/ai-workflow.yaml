@@ -1,0 +1,23 @@
+name: CI [doctor-record-service]
+
+on:
+  push:
+    branches:
+      - feature/ai-workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Local Action
+        id: inference
+        uses: actions/ai-inference@v1
+        with:
+          prompt: 'Hello!'
+
+      - name: Use Response File
+        run: |
+          echo "Response saved to: ${{ steps.inference.outputs.response-file }}"
+          cat "${{ steps.inference.outputs.response-file }}"
+
+
