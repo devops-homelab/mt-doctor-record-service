@@ -16,7 +16,7 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
-          prompt: 'can you build docker image for this repository?'
+          prompt: 'can you build docker image for this repository? in this repository, there is a Dockerfile file'
           token: ${{ secrets.PAT_TOKEN }}
 
       - name: Use Response File
