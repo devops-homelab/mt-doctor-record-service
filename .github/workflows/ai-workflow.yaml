@@ -21,7 +21,7 @@ jobs:
 
       - name: Use Response File
         run: |
-          echo "Response saved to: ${{ steps.inference.outputs.response-file }}"
+          echo "Response saved to: ${{ steps.inference.outputs.response }}"
           cat "${{ steps.inference.outputs.response }}"
 
 
