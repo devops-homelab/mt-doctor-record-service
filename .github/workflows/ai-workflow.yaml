@@ -16,7 +16,7 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
-          prompt: 'Hello!'
+          prompt: 'Can you do a Trivy Scan on this repository?'
           token: ${{ secrets.PAT_TOKEN }}
 
       - name: Use Response File
